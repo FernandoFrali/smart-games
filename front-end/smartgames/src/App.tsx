@@ -1,11 +1,12 @@
 import React from 'react';
-import { Header } from './components/Header/Header';
+import { Games } from './components/Games/index';
+import { Header } from './components/Header/index';
 
 function App() {
   return (
     <div>
       <Header />
-      <h1>Xesquedele</h1>
+      <Games />
     </div>
   );
 }

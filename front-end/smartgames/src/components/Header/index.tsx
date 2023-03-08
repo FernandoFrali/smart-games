@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import '../../styles/global.css';
 import games from './games.jpg';
 
 export const Header: React.FC = () => {
