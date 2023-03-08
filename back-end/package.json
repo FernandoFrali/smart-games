@@ -1,0 +1,24 @@
+{
+  "name": "smartgames",
+  "version": "1.0.0",
+  "description": "E-commerce de games",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FernandoFrali/SmartGames.git"
+  },
+  "author": "Fernando Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FernandoFrali/SmartGames/issues"
+  },
+  "homepage": "https://github.com/FernandoFrali/SmartGames#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.2.0",
+    "sequelize": "^6.29.1"
+  }
+}
