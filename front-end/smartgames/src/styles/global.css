@@ -147,3 +147,48 @@ h2 {
 .buy-btn:active {
   background-color: #3b79ad;
 }
+
+.buy-modal {
+  width: 320px;
+  height: 84px;
+  background-color: #003f91;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  border: 0;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.buy-modal:hover {
+  width: 320px;
+  height: 84px;
+  background-color: #01357a;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  border: 0;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.close-modal {
+  width: 64px;
+  height: 32px;
+  background-color: gray;
+  justify-self: end;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.game-desc {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  line-height: 24px;
+}
+
+.map {
+  display: grid;
+}
