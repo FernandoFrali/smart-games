@@ -187,13 +187,15 @@ h2 {
   font-style: normal;
   font-weight: 200;
   line-height: 24px;
-}
-
-.google-maps {
-  width: 350px;
-  height: 200px;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .stores {
   color: white;
+}
+
+.modal-title {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
 }

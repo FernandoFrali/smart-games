@@ -10,6 +10,7 @@ interface Game {
   platforms: string;
   price: number;
   description: string;
+  stores: string;
 }
 
 interface Subtitle {
@@ -33,6 +34,8 @@ const customStyles: ModalStyles = {
     backgroundColor: '#161313',
   },
   content: {
+    maxHeight: 'calc(100vh - 210px)',
+    overflowY: 'auto',
     top: '50%',
     left: '50%',
     right: 'auto',
@@ -49,7 +52,9 @@ const customStyles: ModalStyles = {
     gap: '10px',
   },
 };
+
 Modal.setAppElement('#root');
+
 export const Games: React.FC = () => {
   let subtitle: Subtitle | null;
   const [games, setGames] = React.useState<Game[] | null>([]);
@@ -119,9 +124,9 @@ export const Games: React.FC = () => {
                 <img src={game.urlImg} />
                 <p className="game-desc">{game.description}</p>
                 {modalIsOpen ? (
-                  <div className="map">
+                  <div>
                     <p>Onde comprar:</p>
-                    <Map />
+                    <Map stores={game.stores} />
                   </div>
                 ) : null}
                 <span className="stores">{game.stores}</span>
