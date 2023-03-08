@@ -9,11 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1"
   },
   "devDependencies": {
+    "@types/google-map-react": "^2.1.7",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/react-modal": "^3.13.1",

@@ -1,9 +1,11 @@
 import React from 'react';
 import '../../styles/global.css';
 import Modal from 'react-modal';
+import Map from '../Map/index';
 
 interface Game {
   name: string;
+  id: number;
   urlImg: string;
   platforms: string;
   price: number;
@@ -55,13 +57,16 @@ export const Games: React.FC = () => {
   const [selectedGameIndex, setSelectedGameIndex] = React.useState<
     number | null | false
   >(null);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
   const afterOpenModal = () => {
     if (subtitle) subtitle.style.color = 'blue';
+    setIsOpen(true);
   };
 
   const closeModal = () => {
     setSelectedGameIndex(false);
+    setIsOpen(false);
   };
 
   const fetchData = async (): Promise<void> => {
@@ -89,7 +94,7 @@ export const Games: React.FC = () => {
     <div className="game-container">
       {games ? (
         games.map((game, index) => (
-          <div className="game-card">
+          <div className="game-card" key={game.id}>
             <h2 className="game-title">{game.name}</h2>
             <img className="game-img" src={game.urlImg} />
             <p className="game-plat">{game.platforms}</p>
@@ -113,9 +118,13 @@ export const Games: React.FC = () => {
                 <h2 className="modal-title">{game.name}</h2>
                 <img src={game.urlImg} />
                 <p className="game-desc">{game.description}</p>
-                <div className="map">
-                  <p>Onde comprar:</p>
-                </div>
+                {modalIsOpen ? (
+                  <div className="map">
+                    <p>Onde comprar:</p>
+                    <Map />
+                  </div>
+                ) : null}
+                <span className="stores">{game.stores}</span>
                 <button
                   className="buy-modal"
                   id={game.name}

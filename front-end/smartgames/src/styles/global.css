@@ -189,6 +189,11 @@ h2 {
   line-height: 24px;
 }
 
-.map {
-  display: grid;
+.google-maps {
+  width: 350px;
+  height: 200px;
+}
+
+.stores {
+  color: white;
 }
