@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const connection = require('./database/database');
-const Game = require('./models/Game');
+const GameTable = require('./models/Game');
+const GameData = require('./seeders/Game');
 
 connection
   .authenticate()
@@ -15,6 +16,6 @@ connection
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.listen(2020, () => {
+app.listen(6000, () => {
   console.log('API online!');
 });
