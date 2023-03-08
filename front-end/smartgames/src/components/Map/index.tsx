@@ -27,7 +27,7 @@ const Map: React.FC<MapProps> = ({ stores }) => {
 
   const markers = [
     {
-      store: 'Loja tambóre',
+      store: 'Loja Tamboré',
       location: {
         lat: -23.5044569,
         lng: -46.8346937,
@@ -55,8 +55,7 @@ const Map: React.FC<MapProps> = ({ stores }) => {
   }, []);
 
   const onLoad = React.useCallback(function callback(map: google.maps.Map) {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+    map.setZoom(10);
     setMap(map);
   }, []);
 
