@@ -9,12 +9,13 @@ import { customStyles } from './styles/CustomStyle';
 Modal.setAppElement('#root');
 
 export const Games: React.FC = () => {
-  let subtitle: Subtitle | null;
-  const { input = '', games, setGames, error } = useContext(GlobalContext);
+  const { input = '', games, error, setError } = useContext(GlobalContext);
   const [selectedGameIndex, setSelectedGameIndex] = React.useState<
     number | null | false
   >(null);
   const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  let subtitle: Subtitle | null;
   let gameKeys = [];
 
   const filteredGames = games?.filter((game) =>
@@ -31,9 +32,29 @@ export const Games: React.FC = () => {
     setIsOpen(false);
   };
 
-  const handleBuy = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const game = event?.currentTarget.id;
-    alert(`Compra concluída com sucesso! Você comprou: ${game}`);
+  const postData = async (game: string, id: number) => {
+    try {
+      const response = await fetch('http://localhost:6060/purchased', {
+        method: 'POST',
+        body: JSON.stringify({
+          gameName: game,
+          gameId: id,
+        }),
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      });
+      return response.json();
+    } catch (error) {
+      setError('Não foi possível realizar a compra');
+    }
+  };
+
+  const handleBuy = (id: number, name: string) => {
+    postData(name, id);
+    const buyAlert = error
+      ? error
+      : `Compra concluída com sucesso! Você comprou: ${name}
+      Seu protocolo é: ${id}`;
+    alert(buyAlert);
   };
 
   if (games && games.length > 0 && filteredGames) {
@@ -77,8 +98,7 @@ export const Games: React.FC = () => {
                 <span className="stores">{game.stores}</span>
                 <button
                   className="buy-modal"
-                  id={game.name}
-                  onClick={handleBuy}
+                  onClick={() => handleBuy(game.id, game.name)}
                 >
                   Comprar Jogo
                 </button>

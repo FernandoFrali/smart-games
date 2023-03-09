@@ -6,6 +6,7 @@ interface GameContextType {
   error: string | null;
   input: string | undefined;
   setInput: (input: string) => void | string | null;
+  setError: (error: string) => void | string | unknown;
 }
 
 export const GlobalContext = React.createContext<GameContextType>({
@@ -14,6 +15,7 @@ export const GlobalContext = React.createContext<GameContextType>({
   error: null,
   input: undefined,
   setInput: (input: string) => '',
+  setError: (error: unknown) => '',
 });
 
 interface Game {
@@ -52,7 +54,9 @@ export const GlobalStorage: React.FC<Props> = ({ children }) => {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ games, setGames, error, input, setInput }}>
+    <GlobalContext.Provider
+      value={{ games, setGames, error, input, setInput, setError }}
+    >
       {children}
     </GlobalContext.Provider>
   );

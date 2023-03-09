@@ -71,10 +71,10 @@ const Map: React.FC<MapProps> = ({ stores }) => {
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
-      {actualStores?.map((store: string) => {
+      {actualStores?.map((store: string, index) => {
         const selectedMarker = markers.find((marker) => store === marker.store);
         if (selectedMarker) {
-          return <Marker position={selectedMarker.location} />;
+          return <Marker key={index} position={selectedMarker.location} />;
         }
         return null;
       })}
