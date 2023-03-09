@@ -1,9 +1,12 @@
 # Smart Games
 
-Uma loja de jogos online criada desde o figma -> back-end -> front-end, responsiva e de fácil uso.
-Link com o Figma do projeto ao final do Readme!
+Uma loja de jogos online criada na ordem: Figma ➛ Back-end ➛ Front-end.
 
-### Pré-requisitos
+Loja responsiva e de fácil uso, com os dados dos jogos sendo recebidos via Excel e convertidos para o banco de dados (MySQL), onde encontra-se uma tabela para os que foram comprados e outra para os disponíveis.
+
+**Link com o Figma do projeto ao final do Readme!**
+
+## Pré-requisitos
 
 Como rodar o projeto:
 
@@ -18,7 +21,7 @@ Como rodar o projeto:
 
 ```
 
-## Ferreamentas usadas
+## Ferramentas usadas
 
 #### **Front-end**
 
@@ -37,7 +40,6 @@ Como rodar o projeto:
 #### **Link para o Figma do projeto**
 
 https://www.figma.com/file/qGQ1Te6E3LXc5ggikAXJYO/Smart-Games---Design?node-id=0%3A1&t=tLcVFAeqDpekhh0W-1
-~
 
 #### **Meus outros projetos**
 
