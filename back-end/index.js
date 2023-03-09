@@ -2,11 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const connection = require('./database/database');
+const Purchased = require('./models/Purchased');
 const Game = require('./models/Game');
-const GameTable = require('./models/Game');
 const GameData = require('./seeders/Game');
 
 app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 connection
   .authenticate()
@@ -14,21 +16,35 @@ connection
     console.log('Conexão feita com o banco de dados!');
   })
   .catch((error) => {
-    console.log(error);
+    console.error(error);
   });
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('ola');
+app.get('/games', async (req, res) => {
+  try {
+    const games = await Game.findAll({ raw: true });
+    res.status(200).json(games);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao buscar jogos.' });
+  }
 });
 
-app.get('/games', (req, res) => {
-  Game.findAll({ raw: true }).then((games) => {
-    res.statusCode = 200;
-    res.json(games);
-  });
+app.post('/purchased', async (req, res) => {
+  try {
+    const response = await Purchased.create({
+      gameId: req.body.gameId,
+      gameName: req.body.gameName,
+    });
+    res.status(200).json({ response });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao criar registro de compra.' });
+  }
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ error: 'Erro interno no servidor.' });
 });
 
 app.listen(6060, () => {
