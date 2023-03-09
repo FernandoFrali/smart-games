@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const connection = require('../database/database');
 
-const Purchased = connection.define('purchased', {
+const Purchased = connection.define('purchases', {
   gameId: {
     type: Sequelize.INTEGER,
     allowNull: false,
