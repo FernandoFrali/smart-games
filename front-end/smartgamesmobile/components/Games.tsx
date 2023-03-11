@@ -106,7 +106,7 @@ export const Games: React.FunctionComponent = () => {
     },
     modalContainer: {
       flex: 1,
-      alignItems: 'center',
+      alignItems: 'flex-end',
       justifyContent: 'center',
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
@@ -147,6 +147,7 @@ export const Games: React.FunctionComponent = () => {
               onDismiss={closeModal}
             >
               <View style={styles.modalContainer}>
+                <Button title="Fechar" onPress={closeModal} />
                 <View style={styles.modalContent}>
                   <Text style={styles.modalText}>{game.name}</Text>
                   <Image
@@ -160,7 +161,6 @@ export const Games: React.FunctionComponent = () => {
                     title={`Comprar ${game.name}`}
                     onPress={() => handleBuy(game.id, game.name)}
                   />
-                  <Button title="Fechar" onPress={closeModal} />
                 </View>
               </View>
             </Modal>
