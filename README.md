@@ -18,6 +18,9 @@ Como rodar o projeto:
 - Na pasta back-end/database, abra o arquivo database.js e altere os dados para o seu banco de dados local (MySQL)
 - Rode o servidor back-end (nodemon index.js ou node index.js)
 - OBS: Certifique-se de que não há nomes em conflito tanto no seu banco de dados criado, quanto na sua tabela
+- Para rodar a versão web, entre na pasta "front-end/smartgames" e digite o comando: npm run dev;
+- Para rodar a versão mobile, entre na pasta "front-end/smartgamesmobile" e digite o comando: yarn start;
+- Além disso, caso esteja na versão mobile, certifique-se de estar na mesma rede wifi que o host (o seu aparelho que está rodando o back-end). Ou você pode optar por usar o navegador para rodar a versão mobile, apertando a tecla "w" após ter iniciado o servidor!
 
 ```
 
