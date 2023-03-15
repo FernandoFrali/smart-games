@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const connection = require('./database/database');
 const GameData = require('./seeders/Game');
-const routes = require('./routes');
+const routes = require('./controllers/routes');
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
