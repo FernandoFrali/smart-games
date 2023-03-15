@@ -11,6 +11,8 @@ import {
   TextStyle,
   ImageStyle,
   Pressable,
+  ScrollView,
+  FlatList,
 } from 'react-native';
 
 interface IStyles {
@@ -48,10 +50,14 @@ export const Games: React.FunctionComponent = () => {
   };
 
   const fetchData = async () => {
-    const response = await fetch('http://localhost:6060/games');
-    const data = await response.json();
-
-    setGames(data);
+    try {
+      const response = await fetch('http://10.0.0.193:19001/games');
+      const data = await response.json();
+      console.log(data, 'texto');
+      setGames(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   React.useEffect(() => {
@@ -60,7 +66,7 @@ export const Games: React.FunctionComponent = () => {
 
   const postData = async (game: string, id: number) => {
     try {
-      const response = await fetch('http://localhost:6060/purchased', {
+      const response = await fetch('http://10.0.0.193:19001/purchased', {
         method: 'POST',
         body: JSON.stringify({
           gameName: game,
@@ -86,7 +92,6 @@ export const Games: React.FunctionComponent = () => {
   const styles = StyleSheet.create<IStyles>({
     container: {
       display: 'flex',
-      flex: 1,
     },
     gameContainer: {
       alignItems: 'center',
@@ -101,8 +106,6 @@ export const Games: React.FunctionComponent = () => {
     image: {
       width: '50%',
       height: 350,
-      borderRadius: 4,
-      marginBottom: 5,
     },
     modalContainer: {
       flex: 1,
@@ -111,6 +114,7 @@ export const Games: React.FunctionComponent = () => {
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     modalContent: {
+      width: '100%',
       backgroundColor: '#fff',
       padding: 20,
       borderRadius: 4,
@@ -121,51 +125,54 @@ export const Games: React.FunctionComponent = () => {
       marginBottom: 10,
     },
   });
-
+  console.log(games);
   return (
     <View style={styles.container}>
       {games.length ? (
-        games.map((game, index) => (
-          <View style={styles.gameContainer} key={game.id}>
-            <Text style={styles.text}>{game.name}</Text>
-            <Image
-              style={styles.image}
-              source={{
-                uri: game.urlImg,
-              }}
-            />
-            <Text>{game.platforms}</Text>
-            <Text style={styles.smallTexts}>R$ {game.price}</Text>
-            <Button
-              title="Comprar"
-              color="#841584"
-              onPress={() => setSelectedGameIndex(index)}
-            />
-            <Modal
-              visible={selectedGameIndex === index}
-              onRequestClose={closeModal}
-              onDismiss={closeModal}
-            >
-              <View style={styles.modalContainer}>
-                <Button title="Fechar" onPress={closeModal} />
-                <View style={styles.modalContent}>
-                  <Text style={styles.modalText}>{game.name}</Text>
-                  <Image
-                    style={styles.image}
-                    source={{
-                      uri: game.urlImg,
-                    }}
-                  />
-                  <Text style={styles.smallTexts}>{game.description}</Text>
-                  <Button
-                    title={`Comprar ${game.name}`}
-                    onPress={() => handleBuy(game.id, game.name)}
-                  />
+        <FlatList
+          data={games}
+          renderItem={({ item: game, index }) => (
+            <View style={styles.gameContainer} key={game.id}>
+              <Text style={styles.text}>{game.name}</Text>
+              <Image
+                style={styles.image}
+                source={{
+                  uri: game.urlImg,
+                }}
+              />
+              <Text>{game.platforms}</Text>
+              <Text style={styles.smallTexts}>R$ {game.price}</Text>
+              <Button
+                title="Comprar"
+                color="#841584"
+                onPress={() => setSelectedGameIndex(index)}
+              />
+              <Modal
+                visible={selectedGameIndex === index}
+                onRequestClose={closeModal}
+                onDismiss={closeModal}
+              >
+                <View style={styles.modalContainer}>
+                  <Button title="Fechar" onPress={closeModal} />
+                  <View style={styles.modalContent}>
+                    <Text style={styles.modalText}>{game.name}</Text>
+                    <Image
+                      style={styles.image}
+                      source={{
+                        uri: game.urlImg,
+                      }}
+                    />
+                    <Text style={styles.smallTexts}>{game.description}</Text>
+                    <Button
+                      title={`Comprar ${game.name}`}
+                      onPress={() => handleBuy(game.id, game.name)}
+                    />
+                  </View>
                 </View>
-              </View>
-            </Modal>
-          </View>
-        ))
+              </Modal>
+            </View>
+          )}
+        />
       ) : (
         <Text>{error}</Text>
       )}

@@ -21,18 +21,15 @@ const styles = StyleSheet.create({
     border: 0,
   },
   header: {
-    width: '100vw',
-    height: '80px',
+    width: '100%',
+    height: 80,
     backgroundColor: '#1f1f1f',
     display: 'flex',
-    gridTemplateColumns: '1fr 1fr 1fr',
     alignItems: 'center',
     justifyContent: 'center',
     top: 0,
     position: 'relative',
     margin: 0,
-
-    filter: 'drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.5))',
   },
   text: {
     color: 'white',
