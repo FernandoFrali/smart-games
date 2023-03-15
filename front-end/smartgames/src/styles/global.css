@@ -8,6 +8,22 @@ body {
   background-color: #161313;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #555;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5da9e9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4884b5;
+}
+
 @media screen and (max-width: 1100px) {
   .search {
     display: none;
@@ -23,6 +39,10 @@ body {
   border: 0;
 }
 
+.search:focus::placeholder {
+  color: transparent;
+}
+
 .search:hover {
   background-color: #b2b2b2;
 }
@@ -31,10 +51,11 @@ body {
   background-color: b2b2b2;
   border: 0;
   outline: 2px solid #5da9e9;
+  color: #01357a;
 }
 
 .header {
-  width: 99vw;
+  width: 100%;
   height: 80px;
   background-color: #1f1f1f;
   display: grid;
