@@ -34,7 +34,7 @@ export const Games: React.FC = () => {
 
   const postData = async (game: string, id: number) => {
     try {
-      const response = await fetch('http://localhost:6060/purchased', {
+      const response = await fetch('http://localhost:19001/purchased', {
         method: 'POST',
         body: JSON.stringify({
           gameName: game,
