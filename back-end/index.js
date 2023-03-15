@@ -35,10 +35,12 @@ app.post('/purchased', async (req, res) => {
       gameId: req.body.gameId,
       gameName: req.body.gameName,
     });
-    res.status(200).json({ response });
+    res.status(200).json({ ok: true, response });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Erro ao criar registro de compra.' });
+    res
+      .status(500)
+      .json({ ok: false, error: 'Erro ao criar registro de compra.' });
   }
 });
 
