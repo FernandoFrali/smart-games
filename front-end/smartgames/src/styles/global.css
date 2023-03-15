@@ -88,6 +88,7 @@ body {
   width: 250px;
   height: 250px;
   object-fit: cover;
+  border-radius: 4px;
 }
 
 .game-container {
@@ -139,71 +140,143 @@ h2 {
 .buy-btn {
   width: 250px;
   height: 42px;
-  background-color: #5da9e9;
+  background-color: transparent;
+  border: 2px solid #5da9e9;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 20px;
-  border: 0;
+  color: #5da9e9;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .buy-btn:hover {
-  background-color: #4d9de0;
+  background-color: #5da9e9;
+  color: white;
 }
 
 .buy-btn:active {
   background-color: #3b79ad;
 }
 
+@media screen and (max-width: 900px) {
+  .modal-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-content: center !important;
+  }
+  .modal-title {
+    align-self: center !important;
+  }
+  .modal-image {
+    align-self: center !important;
+  }
+  .game-desc {
+    align-self: center !important;
+    width: 90vw !important;
+  }
+  .modal-map {
+    align-self: center !important;
+  }
+  .buy-modal {
+    align-self: center !important;
+  }
+}
+
+.modal-container {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: auto-fill 1fr;
+}
+
+.modal-title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  grid-area: 2 / 1;
+}
+
+.modal-image {
+  border-radius: 12px;
+  padding: 5px;
+  grid-area: 2 / 2 / 4 / 2;
+  align-self: center;
+  justify-self: center;
+  height: 340px;
+  max-width: 400px;
+}
+
 .buy-modal {
-  width: 320px;
-  height: 84px;
-  background-color: #003f91;
+  width: 260px;
+  height: 64px;
+  background-color: #01357a;
+  border: 0;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 20px;
-  border: 0;
+  margin-top: 30px;
   color: white;
   font-weight: 700;
   font-size: 20px;
+  grid-area: 5 / 1;
+  margin-left: 10px;
+  justify-self: start;
+  transition: background-color 0.5s ease, color 0.5s ease, width 0.5s ease;
 }
 
 .buy-modal:hover {
   width: 320px;
-  height: 84px;
-  background-color: #01357a;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 20px;
-  border: 0;
-  font-weight: 700;
-  font-size: 20px;
+  background-color: transparent;
+  border: 2px solid #01357a;
+  color: #01357a;
 }
 
 .close-modal {
-  width: 64px;
-  height: 32px;
-  background-color: gray;
+  padding: 5px;
+  font-weight: 700;
+  border: 1px solid gray;
+  color: gray;
+  background-color: transparent;
   justify-self: end;
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
   border-radius: 4px;
   cursor: pointer;
+  grid-area: 1 / 1;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.close-modal:hover {
+  background-color: gray;
+  color: white;
+}
+
+.modal-map {
+  margin-top: 10px;
+  grid-area: 5 / 2;
+  justify-self: center;
+  align-self: end;
+  margin-right: 10px;
 }
 
 .game-desc {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 200;
+  width: 30vw;
+  padding: 10px;
   line-height: 24px;
-  margin-top: 1.5rem;
-  margin-bottom: 2.5rem;
+  grid-area: 3 / 1;
+  align-self: start;
+  justify-self: center;
+  text-align: left;
+  color: #aaa;
+  font-style: italic;
 }
 
-.stores {
+strong {
   color: white;
 }
 
-.modal-title {
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
+.stores {
+  color: #3f3f3f;
 }
 
 .ReactModal__Overlay {

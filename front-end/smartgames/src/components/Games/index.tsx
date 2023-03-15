@@ -84,24 +84,26 @@ export const Games: React.FC = () => {
                 style={customStyles}
               >
                 <button onClick={closeModal} className="close-modal">
-                  Fechar
+                  X
                 </button>
-                <h2 className="modal-title">{game.name}</h2>
-                <img src={game.urlImg} />
-                <p className="game-desc">{game.description}</p>
-                {modalIsOpen ? (
-                  <div>
-                    <p>Onde comprar:</p>
-                    <Map stores={game.stores} />
-                  </div>
-                ) : null}
-                <span className="stores">{game.stores}</span>
-                <button
-                  className="buy-modal"
-                  onClick={() => handleBuy(game.id, game.name)}
-                >
-                  Comprar Jogo
-                </button>
+                <div className="modal-container">
+                  <h2 className="modal-title">{game.name}</h2>
+                  <img className="modal-image" src={game.urlImg} />
+                  <p className="game-desc">{game.description}</p>
+                  {modalIsOpen ? (
+                    <div className="modal-map">
+                      <strong>Onde comprar:</strong>
+                      <Map stores={game.stores} />
+                      <p className="stores">{game.stores}</p>
+                    </div>
+                  ) : null}
+                  <button
+                    className="buy-modal"
+                    onClick={() => handleBuy(game.id, game.name)}
+                  >
+                    Comprar Jogo
+                  </button>
+                </div>
               </Modal>
             </div>
           </div>
