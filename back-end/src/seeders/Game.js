@@ -13,13 +13,13 @@ Game.count()
     if (count === 0) {
       return Game.bulkCreate(gamesFromExcel);
     } else {
-      console.log('A tabela games já possui registros.');
+      console.log('The table "Games" already has records.');
       return null;
     }
   })
   .then((createdGames) => {
     if (createdGames) {
-      console.log(`Foram inseridos ${createdGames.length} jogos.`);
+      console.log(`${createdGames.length} games sucessfully added.`);
     }
   })
   .catch((error) => {
