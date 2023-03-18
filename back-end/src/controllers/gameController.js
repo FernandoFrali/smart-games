@@ -1,5 +1,6 @@
 const Game = require('../models/Game');
 const Purchased = require('../models/Purchased');
+const { NotFoundError, NotSpecifiedError } = require('../errors/index');
 
 class GameController {
   static async getGames(req, res, next) {
@@ -7,7 +8,7 @@ class GameController {
       const games = await Game.findAll({ raw: true });
 
       if (!games || !games.length) {
-        throw new Error('No games found.');
+        throw new NotFoundError('No games found.');
       }
 
       res.status(200).json(games);
@@ -21,8 +22,10 @@ class GameController {
     try {
       const { gameId, gameName } = req.body;
 
-      if (!gameName || !gameId) {
-        throw new Error('Game name not found');
+      if (!gameName) {
+        throw new NotSpecifiedError('Game name not specified');
+      } else if (!gameId) {
+        throw new NotSpecifiedError('Game ID not specified');
       }
 
       const response = await Purchased.create({
