@@ -44,7 +44,7 @@ export const Games: React.FC = () => {
       });
       return response.json();
     } catch (error) {
-      setError('Não foi possível realizar a compra');
+      if (error instanceof Error) setError(error.message);
     }
   };
 

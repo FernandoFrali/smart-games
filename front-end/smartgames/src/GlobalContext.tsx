@@ -43,9 +43,7 @@ export const GlobalStorage: React.FC<Props> = ({ children }) => {
       const data = await response.json();
       setGames(data);
     } catch (error) {
-      setError(
-        'Ocorreu um erro ao processar os jogos. Reinicie a página, caso não funcione, mande mensagem para: johndoe@email.com'
-      );
+      if (error instanceof Error) setError(error.message);
     }
   };
 
