@@ -1,4 +1,4 @@
-const Game = require('../models/Game');
+const Game = require('../models/GameModel');
 const XLSX = require('xlsx');
 
 const workbook = XLSX.readFile('seeders/games.xlsx');

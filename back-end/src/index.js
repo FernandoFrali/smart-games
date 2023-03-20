@@ -1,6 +1,7 @@
 const app = require('./config/express');
 const connection = require('./config/database');
 const GameData = require('./seeders/Game');
+const { GameModel, PurchaseModel } = require('./models/index');
 
 connection
   .authenticate()
@@ -11,6 +12,6 @@ connection
     console.error(error);
   });
 
-app.listen(19001, () => {
+app.listen(4040, () => {
   console.log('API online!');
 });

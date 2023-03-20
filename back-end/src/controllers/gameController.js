@@ -1,5 +1,5 @@
-const Game = require('../models/Game');
-const Purchased = require('../models/Purchased');
+const Game = require('../models/GameModel');
+const Purchased = require('../models/PurchasedModel');
 const { NotFoundError, NotSpecifiedError } = require('../errors/index');
 
 class GameController {
