@@ -1,0 +1,50 @@
+version: '2'
+services:
+  db:
+    # We use a mariadb image which supports both amd64 & arm64 architecture
+    image: mariadb:10.6.4-focal
+    # If you really want to use MySQL, uncomment the following line
+    #image: mysql:8.0.27
+    command: '--default-authentication-plugin=mysql_native_password'
+    restart: always
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=smartgamesdb
+      - MYSQL_ROOT_PASSWORD=oliveira
+  backend:
+    build:
+      args:
+        - NODE_ENV=development
+      context: back-end
+    command: bash -c "cd src && node index.js"
+    environment:
+      - DATABASE_DB=smartgamesdb
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=oliveira
+      - DATABASE_HOST=db
+      - NODE_ENV=development
+    ports:
+      - '4040:4040'
+      - 80:80
+      - 9229:9229
+      - 9230:9230
+    volumes:
+      - ./back-end/src:/code/src:ro
+      - ./back-end/package.json:/code/package.json
+      - ./back-end/package-lock.json:/code/package-lock.json
+      - back-notused:/opt/app/node_modules
+    depends_on:
+      - db
+  frontend:
+    build: ./front-end/smartgames
+    ports:
+      - 5173:5173
+    volumes:
+      - ./front-end/smartgames/src:/app/src
+      - /app/node_modules
+    depends_on:
+      - backend
+volumes:
+  back-notused:
+  db-data:
