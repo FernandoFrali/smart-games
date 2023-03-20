@@ -1,8 +1,11 @@
-<a name="readme-top">Smart Games - A fullstack project of a virtual store</a>
+### <a name="readme-top">Smart Games - A fullstack project of a virtual store
+
+Check my LinkedIn, and Figma file of the project below:</a>
 
 <!-- PROJECT SHIELDS -->
 
 [![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/fernandofrali/)
+[![Figma][figma-shield]](https://www.figma.com/file/qGQ1Te6E3LXc5ggikAXJYO/Smart-Games---Design?node-id=0%3A1&t=tLcVFAeqDpekhh0W-1)
 
 <!-- PROJECT LOGO -->
 <br />
@@ -252,3 +255,4 @@ Project Link: [https://github.com/FernandoFrali/smart-games](https://github.com/
 [node-url]: https://nodejs.org/
 [mysql-url]: https://www.mysql.com/
 [docker-url]: https://www.docker.com/
+[figma-shield]: https://img.shields.io/badge/-Figma-black.svg?style=for-the-badge&logo=figma&colorB=white
