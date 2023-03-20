@@ -51,7 +51,7 @@ export const Games: React.FunctionComponent = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://10.0.0.193:19001/games');
+      const response = await fetch('http://localhost:4040/games');
       const data = await response.json();
       console.log(data, 'texto');
       setGames(data);
@@ -66,7 +66,7 @@ export const Games: React.FunctionComponent = () => {
 
   const postData = async (game: string, id: number) => {
     try {
-      const response = await fetch('http://10.0.0.193:19001/purchased', {
+      const response = await fetch('http://localhost:4040/purchased', {
         method: 'POST',
         body: JSON.stringify({
           gameName: game,

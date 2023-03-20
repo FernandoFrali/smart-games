@@ -39,7 +39,7 @@ export const GlobalStorage: React.FC<Props> = ({ children }) => {
 
   const fetchData = async (): Promise<void> => {
     try {
-      const response = await fetch('http://localhost:19001/games');
+      const response = await fetch('http://localhost:4040/games');
       const data = await response.json();
       setGames(data);
     } catch (error) {
