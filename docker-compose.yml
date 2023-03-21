@@ -17,7 +17,7 @@ services:
       args:
         - NODE_ENV=development
       context: back-end
-    command: bash -c "npm install -g nodemon && cd src && npx sequelize-cli db:create && npx sequelize-cli db:migrate && nodemon index.js"
+    command: bash -c "npm install -g nodemon && cd src && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && nodemon index.js"
     environment:
       - DATABASE_DB=smartgamesdb
       - DATABASE_USER=root

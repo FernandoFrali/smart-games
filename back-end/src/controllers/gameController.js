@@ -1,6 +1,6 @@
 const { sequelize } = require('../models/index');
 const Game = sequelize.models.Game;
-const Purchased = sequelize.models.Purchased;
+const Purchase = sequelize.models.Purchase;
 const { NotFoundError, NotSpecifiedError } = require('../errors/index');
 
 class GameController {
@@ -29,7 +29,7 @@ class GameController {
         throw new NotSpecifiedError('Game ID not specified');
       }
 
-      const response = await Purchased.create({
+      const response = await Purchase.create({
         gameId: req.body.gameId,
         gameName: req.body.gameName,
       });

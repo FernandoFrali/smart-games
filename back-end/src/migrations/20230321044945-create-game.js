@@ -7,37 +7,39 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       description: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       urlImg: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       price: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       platforms: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       stores: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Games');
-  }
+  },
 };
