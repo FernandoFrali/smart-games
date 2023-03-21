@@ -177,6 +177,8 @@ _For more examples, please refer to the [Documentation (coming soon)](https://ex
   - [x] Create a method to get the items from database
   - [x] Create a method to post the purchased items
   - [x] Handle errors with middlewares
+  - [ ] Change back-end code to TypeScript
+  - [ ] Change ORM to Prisma
   - [ ] Authentication method to login
   - [ ] Can create a store on database and publish your own games
   - [ ] GraphQL version
