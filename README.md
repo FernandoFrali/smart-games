@@ -104,9 +104,9 @@ To get a local copy up and running follow these simple example steps.
    docker-compose up
    ```
 
-4. Now you can access the website with http://localhost:5173
+4. Now you can access the website on http://localhost:5173
 
-> **Note**
+> **Warning**
 >
 > You can't access mobile version on Docker for now, cause mobile version have few features, and web version is so much ahead, so I choose not to 'dockerize' the mobile version. I'm focusing on Node and AWS study. So, I will focus on mobile version after web version is 100% ready (check the <a href="#roadmap">Roadmap</a>).
 > </br>
@@ -128,17 +128,29 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    > npm install
    ```
-5. In your text editor, go to the file located in: `back-end/src/config/database.js` and change the database settings on "connection" variable to:
+5. In your text editor, go to the files located in: `back-end/src/config` *database.js* and *config.json*. Now change the database settings on "connection" variable and config.json development section:
    ```sh
+   // database.js
+   
    const connection = new Sequelize('smartgamesdb', 'root', 'your_mysql_password', {
     host: 'localhost',
     dialect: 'mysql',
    });
+   
+   // config.json
+
+    "username": "root",
+    "password": "your_mysql_password",
+    "database": "smartgamesdb",
+    "host": "localhost",
+    "dialect": "mysql"
    ```
-6. Now, start the back-end server on your terminal
+6. Now, start the database with Sequelize-CLI and back-end server on your terminal
    ```sh
+   > npx sequelize-cli db:migrate
+   > npx sequelize-cli db:seed:all
    > nodemon index.js
-   // Or, if nodemon gets error, use 'node' instead
+   // Or, if nodemon gets error, use 'node index.js' instead
    ```
 7. After server gets started, go to front-end directory located in: `front-end/smartgames` and run the application
 
@@ -146,7 +158,7 @@ To get a local copy up and running follow these simple example steps.
    > npm run dev
    ```
 
-8. The web version is working and ready to use now. You can access it with http://localhost:5173
+8. The web version is working and ready to use now. You can access it on http://localhost:5173
 
 9. To run the mobile version, go to path `front-end/smartgamesmobile` and install the dependencies
    ```sh
@@ -156,7 +168,7 @@ To get a local copy up and running follow these simple example steps.
     ```sh
     > npm run start
     ```
-11. To finish, just scan the QRCode that Expo generates on your terminal with your phone
+11. To finish, just scan the QRCode that Expo generates on terminal with your phone
 
 <!-- USAGE EXAMPLES -->
 
