@@ -51,7 +51,7 @@ Check my LinkedIn, and Figma file of the project below:</a>
 
 ## About The Project
 
-![product-screenshot](https://i.imgur.com/5Hfuj6Q.jpg)
+![product-screenshot](https://i.imgur.com/1TMAVty.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
