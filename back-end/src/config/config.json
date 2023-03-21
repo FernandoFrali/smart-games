@@ -1,13 +1,13 @@
 {
   "development": {
-    "username": "nandin",
-    "password": null,
+    "username": "root",
+    "password": "oliveira",
     "database": "smartgamesdb",
-    "host": "localhost",
+    "host": "db",
     "dialect": "mysql"
   },
   "test": {
-    "username": "nandin",
+    "username": "frali",
     "password": null,
     "database": "smartgamesdb_test",
     "host": "localhost",
@@ -15,9 +15,9 @@
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "password": "oliveira",
+    "database": "smartgamesdb",
+    "host": "db",
     "dialect": "mysql"
   }
 }
