@@ -16,6 +16,7 @@ EXPOSE $PORT 9229 9230
 COPY package.json /code/package.json
 COPY package-lock.json /code/package-lock.json
 RUN npm ci
+RUN npm install -g sequelize-cli
 
 # check every 30s to ensure this service returns HTTP 200
 HEALTHCHECK --interval=30s \
