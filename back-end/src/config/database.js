@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
-const connection = new Sequelize('smartgamesdb', 'root', 'oliveira', {
-  host: 'db',
+const connection = new Sequelize('smartgamesdb', 'nandin', '', {
+  host: 'localhost',
   dialect: 'mysql',
   port: 3306,
 });

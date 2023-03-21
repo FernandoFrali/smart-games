@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "nandin",
+    "password": null,
+    "database": "smartgamesdb",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "nandin",
+    "password": null,
+    "database": "smartgamesdb_test",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

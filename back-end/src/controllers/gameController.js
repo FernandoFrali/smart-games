@@ -1,5 +1,6 @@
-const Game = require('../models/GameModel');
-const Purchased = require('../models/PurchasedModel');
+const { sequelize } = require('../models/index');
+const Game = sequelize.models.Game;
+const Purchased = sequelize.models.Purchased;
 const { NotFoundError, NotSpecifiedError } = require('../errors/index');
 
 class GameController {

@@ -1,7 +1,5 @@
 const app = require('./config/express');
 const connection = require('./config/database');
-const GameData = require('./seeders/Game');
-const { GameModel, PurchaseModel } = require('./models/index');
 
 connection
   .authenticate()
