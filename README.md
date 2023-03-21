@@ -222,6 +222,7 @@ _For more examples, please refer to the [Documentation (coming soon)](https://ex
   - [ ] English version
   - [ ] Download page
   - [ ] Comments section on each game page
+  - [ ] Improve perfomance
   - New goals will be added according to project progress
 
 - Create a mobile version
